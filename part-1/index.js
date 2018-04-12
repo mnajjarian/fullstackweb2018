@@ -9,19 +9,10 @@ const Course = (props) => {
     </div>
   )
 }
-const Part = (props) => {
-  return(
-    <div>
-      <p>{props.part} {props.value}</p>
-    </div>
-  )
-}
 const Content = (props) => {
   return(
     <div>
-    <Part part="React's Basics" value={10}/>
-    <Part part="Communication with props" value={7}/>
-    <Part part="Component status" value={14}/>
+    <p>{props.part} {props.value}</p>
     </div>
   )
 }
@@ -33,17 +24,27 @@ const Overall = (props) => {
   )
 }
 const App = () => {
-  const name = 'Half Stack-Application Development'
-  const value1 = 10
-  const value2 = 7
-  const value3 = 14
-  const total = value1 + value2 + value3
+  const course = 'Half Stack-Application Development'
+  const part1 = {
+    name: 'React\'s Basics',
+    value: 10
+  }
+  const part2 = {
+    name: 'Communication with props',
+    value: 7
+  }
+  const part3 = {
+    name: 'Component status',
+    value: 14
+  }
 
   return (
     <div>
-      <Course name={name}/>
-      <Content />
-      <Overall total={total}/>
+      <Course name={course}/>
+      <Content part={part1.name} value={part1.value}/>
+      <Content part={part2.name} value={part2.value}/>
+      <Content part={part3.name} value={part3.value}/>
+      <Overall total={part1.value + part2.value + part3.value}/>
     </div>
   )
 }
