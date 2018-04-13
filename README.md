@@ -1,2 +1,2 @@
 # fullstack-exampleapp
-My  assingment in fullstack-exampleapp.herokuapp.com
+My  assingment for Full stack open 2018
