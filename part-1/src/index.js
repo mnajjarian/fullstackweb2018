@@ -9,10 +9,19 @@ const Title = (props) => {
     )
 }
 
-const Content = (props) => {
+const Part = (props) => {
     return(
         <div>
             <p>{props.name} {props.value}</p>
+        </div>
+    )
+}
+const Content = (props) => {
+    return(
+        <div>
+            <Part name={props.part1} value={props.task1} />
+            <Part name={props.part2} value={props.task2} />
+            <Part name={props.part3} value={props.task3} />
         </div>
     )
 }
@@ -25,23 +34,26 @@ const Total = (props) => {
     )
 }
 
-
 const App = () => {
-  const course = 'Half Stack Application Development'
-  const part1 = 'React\'s Basics'
-  const task1 = 10
-  const part2 = 'Communication with propse'
-  const task2 = 7
-  const part3 = 'Component status'
-  const task3 = 14
+    const course = 'Half Stack Application Development'
+    const part1 = {
+      name: 'React\'s Basics',
+      task: 10
+    }
+    const part2 = {
+      name: 'Communication with propse',
+      task: 7
+    }
+    const part3 = {
+      name: 'Component status',
+      task: 14
+    }
 
   return (
     <div>
         <Title title={course} />
-        <Content name={part1} value={task1} />
-        <Content name={part2} value={task2} />
-        <Content name={part3} value={task3} />
-        <Total total={task1 + task2 + task3} />
+        <Content part1={part1.name} part2={part2.name} part3={part3.name} task1={part1.task} task2={part2.task} task3={part3.task}/>
+        <Total total={part1.task + part2.task + part3.task} />
     </div>
   )
 }
