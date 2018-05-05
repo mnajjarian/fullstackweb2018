@@ -40,8 +40,8 @@ class App extends React.Component {
     }
     personService
     .create(newObject)
-    .then(response => {
-      const persons = this.state.persons.concat(newObject)
+    .then(newObject => {
+      const persons = this.state.persons.filter(p => p.name !== newObject.name).concat(newObject)
       this.setState({
       persons,
       newName: '',
