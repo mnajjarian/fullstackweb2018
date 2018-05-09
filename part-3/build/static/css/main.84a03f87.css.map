@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.css"],"names":[],"mappings":"AAAA,OACA,iBACA,eACA,aACA,sBACA,kBACA,kBAAoB","file":"static/css/main.84a03f87.css","sourcesContent":[".error {\nbackground: green;\nfont-size: 20px;\npadding: 10px;\nborder: 2px solid black;\nborder-radius: 5px;\nmargin-bottom: 10px;\n}\n\n\n// WEBPACK FOOTER //\n// ./src/index.css"],"sourceRoot":""}
