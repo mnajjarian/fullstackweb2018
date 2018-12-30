@@ -1,0 +1,16 @@
+.message {
+    border: 1px solid green;
+    color: green;
+    padding: 20px;
+}
+
+.error {
+    border: 1px solid red;
+    color: red;
+    padding: 20px
+}
+
+.row-header {
+    margin: 0px auto;
+    padding: 0px auto
+}
