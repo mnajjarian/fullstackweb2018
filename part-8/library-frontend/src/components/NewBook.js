@@ -16,7 +16,6 @@ const NewBook = (props) => {
     await props.addBook({
       variables: { title, author, published, genres }
     })
-    console.log('add book...')
 
     setTitle('')
     setPublished('')
@@ -27,7 +26,6 @@ const NewBook = (props) => {
 
   const addGenre = () => {
     setGenres(genres.concat(genre))
-    console.log(typeof published)
     setGenre('')
   }
 

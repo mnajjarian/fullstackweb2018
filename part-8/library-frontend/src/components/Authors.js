@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import AuthorUpdate from './AuthorUpdate';
 
 const Authors = (props) => {
