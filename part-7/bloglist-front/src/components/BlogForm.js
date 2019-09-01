@@ -1,25 +1,64 @@
 import React from 'react'
-import { Form, Control } from 'react-redux-form'
+import { Form, FormGroup, Label, Input, Container, Button } from 'reactstrap'
 
-const BlogForm = (props) => (
-  <div>
-    <h2>Create new blog</h2>
-    <Form model='blogform' onSubmit={props.handleCreate} >
-      <div>
-        <label>Title: </label>
-        <Control.text model='.title' />
-      </div>
-      <div>
-        <label>Author: </label>
-        <Control.text model='.author' />
-      </div>
-      <div>
-        <label>Url: </label>
-        <Control.text model='.url' />
-      </div>
-      <button type='submit' >create</button>
-    </Form>
-  </div>
-)
+const BlogForm = (props) => {
+  const[state, setState] = React.useState({
+    title: '',
+    author: '',
+    url: ''
+  })
+  const handleChange = (e) => setState({
+    ...state,
+    [e.target.name]: e.target.value
+  })
+
+  const handleSubmit = () => {
+    props.handleCreate(state)
+    setState({
+      title: '',
+      author: '',
+      url: ''
+    })
+  }
+
+  const { title, author, url } = state
+  return (
+    <Container>
+      <h2>Create new blog</h2>
+      <Form model='blogform' onSubmit={handleSubmit} >
+        <FormGroup>
+          <Label>Title: </Label>
+          <Input
+            type="text"
+            name="title"
+            id="title"
+            value={title}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label>Author: </Label>
+          <Input
+            type="text"
+            name="author"
+            id="author"
+            value={author}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label>Url: </Label>
+          <Input
+            type="text"
+            name="url"
+            id="url"
+            value={url}
+            onChange={handleChange}
+          />
+        </FormGroup>
+        <Button type='submit' color="primary" >Create</Button>
+      </Form>
+    </Container>
+  )}
 
 export default BlogForm

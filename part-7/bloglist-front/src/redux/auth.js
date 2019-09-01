@@ -33,6 +33,23 @@ export const Auth = (state = {
       token: '',
       user: null
     }
+  case ActionTypes.SIGNUP__REQUEST:
+    return { ...state,
+      isAuthenticated: false,
+      user: action.data
+    }
+  case ActionTypes.SIGNUP__SUCCESS:
+    return { ...state,
+      isAuthenticated: true,
+      errMess: '',
+      token: action.data
+    }
+  case ActionTypes.SIGNUP_FAILURE:
+    return { ...state,
+      isAuthenticated: false,
+      token: '',
+      errMess: action.data
+    }
   default:
     return state
   }

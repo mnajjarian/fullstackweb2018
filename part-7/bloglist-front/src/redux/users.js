@@ -6,7 +6,6 @@ export const Users = (state = {
   switch (action.type) {
   case ActionTypes.ADD_USERS:
     return { ...state, users: action.data }
-
   default:
     return state
   }

@@ -1,8 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import Comment from './Comment'
-import { Card, CardBody, CardTitle, CardLink, CardText, Button,
-  CardFooter, CardSubtitle, CardHeader } from 'reactstrap'
+import { Card, CardBody, CardTitle, CardLink, CardText, Button } from 'reactstrap'
 
 const BlogDetails = (props) => {
 

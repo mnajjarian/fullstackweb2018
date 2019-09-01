@@ -1,24 +1,20 @@
 import React from 'react'
-import BlogForm from './BlogForm'
-import Togglable from './Togglable'
 import LoginForm from './LoginForm'
 import { Nav, Navbar, NavbarBrand, NavItem, Button } from 'reactstrap'
 
 const Header = (props) => {
+
   const handleLogout = () => {
     props.logoutUser()
   }
 
-  const handleSubmit = (values) => {
-    const user = {
-      username: values.username,
-      password: values.password
+  const handleSubmit = (user) => {
+    if(!user.name) {
+      props.loginUser(user)
     }
-    props.loginUser(user)
+    props.signupUser(user)
     props.resetLoginForm()
   }
-
-
 
   return(
     <React.Fragment>
@@ -29,16 +25,13 @@ const Header = (props) => {
             <NavItem>
               { props.auth.isAuthenticated ?
                 <div>
-                  <div className="navbar-text mr-3">{localStorage.getItem('name')}</div>
+                  <div className="navbar-text mr-3">{JSON.parse(localStorage.getItem('creds')).username}</div>
                   <Button onClick={handleLogout} > logout</Button>
                 </div> :
                 <div>
-                  <Togglable buttonLabel='login'>
-                    <LoginForm handleSubmit={handleSubmit} />
-                  </Togglable>
+                  <LoginForm handleSubmit={handleSubmit} />
                 </div>
               }
-
             </NavItem>
           </Nav>
         </div>

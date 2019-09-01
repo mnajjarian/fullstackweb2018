@@ -11,11 +11,11 @@ const Comment = (props) => {
         </form>
       </div>
       <div>
-        <ul>
+        {/* <ul>
           {props.blog.comments.map(com =>
             <li key={com._id}>{com.comment}</li>
           )}
-        </ul>
+        </ul> */}
       </div>
     </div>
   )

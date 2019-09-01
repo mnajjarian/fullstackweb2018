@@ -1,0 +1,5 @@
+MONGODB_URI=mongodb://fullstackweb:full8for2@ds219000.mlab.com:19000/blog-fullstack
+TEST_MONGODB_URI='mongodb://fullstackweb:full8for2@ds129770.mlab.com:29770/blog-fullstack-test'
+PORT=3001
+
+SECRET='gfgeaes'

@@ -106,14 +106,12 @@ export const addUsers = () => {
 export const loginUser = (creds) => async (dispatch) => {
   try {
     const response = await loginService.login(creds)
-    console.log('response: ')
     dispatch(requestLogin(creds))
     localStorage.setItem('token', response.token)
     localStorage.setItem('creds', JSON.stringify(creds))
     localStorage.setItem('name', response.name )
     dispatch(receiveLogin(response))
   } catch (error) {
-    console.log(error)
     dispatch(loginError(error.message))
     dispatch(notification({ error: 'wrong username or password', message: null }))
     setTimeout(() => {
@@ -161,5 +159,43 @@ export const requestLogout = () => {
 export const receiveLogout = () => {
   return {
     type: ActionTypes.LOGOUT_SUCCESS
+  }
+}
+
+export const signupUser = (creds) => async (dispatch) => {
+  try {
+    const response = await userService.addUser(creds)
+    dispatch(requestSignup(response))
+    localStorage.setItem('token', response.token)
+    localStorage.setItem('creds', JSON.stringify(creds))
+    localStorage.setItem('name', response.name )
+    dispatch(receiveSignup(response))
+  } catch (error) {
+    dispatch(signupError(error.message))
+    dispatch(notification({ error: 'Username must be unique', message: null }))
+    setTimeout(() => {
+      dispatch({ type: ActionTypes.MESSAGE_NULL })
+    }, 5000)
+  }
+}
+
+export const requestSignup = (data) => {
+  return {
+    type: ActionTypes.SIGNUP__REQUEST,
+    data: data
+  }
+}
+
+export const receiveSignup = (response)  => {
+  return {
+    type: ActionTypes.SIGNUP__SUCCESS,
+    data: response
+  }
+}
+
+export const signupError = (message) => {
+  return {
+    type: ActionTypes.SIGNUP_FAILURE,
+    data: message
   }
 }

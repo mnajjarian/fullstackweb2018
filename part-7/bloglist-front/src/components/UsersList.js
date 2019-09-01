@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Breadcrumb, BreadcrumbItem, Table } from 'reactstrap'
 
 const UsersList = ({ users, handleUser }) => {
+  console.log(users)
   return(
     <div>
       <Breadcrumb>
@@ -18,7 +19,7 @@ const UsersList = ({ users, handleUser }) => {
           </tr>
           {users.map(user =>
             <tr key={user.id} >
-              <td onClick={handleUser(user.id)} ><a href={`/${user.id}`} >{user.name}</a></td>
+              <td onClick={handleUser(user.id)} ><a href={`/${user.id}`} >{user.username}</a></td>
               <td>{user.blogs.length}</td>
             </tr>
           )}
