@@ -23,7 +23,7 @@ const App = (props) => {
     return
   }
   const blogWithId = (blogId) =>
-    this.props.blogs.blogs.find((blog) => blog.id === blogId)
+    props.blogs.blogs.find((blog) => blog.id === blogId)
   return (
     <div>
       <Notification notify={props.blogs.notify}/>

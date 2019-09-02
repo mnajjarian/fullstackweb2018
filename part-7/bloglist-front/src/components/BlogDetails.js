@@ -1,25 +1,26 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import Comment from './Comment'
-import { Card, CardBody, CardTitle, CardLink, CardText, Button } from 'reactstrap'
+import { Card, CardBody, CardTitle, CardLink, CardText, Button, Container } from 'reactstrap'
 
 const BlogDetails = (props) => {
-
   const addLike = (blogId) => () => {
     props.addLikes(blogId)
   }
 
   const submitComment =(event) => {
+   
     event.preventDefault()
     const comment = {
       comment: event.target.comment.value
     }
+    console.log(comment)
     event.target.comment.value = ''
     props.addComment(props.blog.id, comment)
   }
   if(props.blog) {
     return(
-      <div>
+      <Container>
         <Card>
           <CardBody>
             <CardTitle>{props.blog.title}</CardTitle>
@@ -39,7 +40,7 @@ const BlogDetails = (props) => {
               </div>}
           </CardBody>
         </Card>
-      </div>
+      </Container>
     )
   } else {
     return(

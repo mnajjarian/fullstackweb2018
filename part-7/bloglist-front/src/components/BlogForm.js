@@ -26,32 +26,35 @@ const BlogForm = (props) => {
     <Container>
       <h2>Create new blog</h2>
       <Form model='blogform' onSubmit={handleSubmit} >
-        <FormGroup>
-          <Label>Title: </Label>
+        <FormGroup >
+          <Label>Title</Label>
           <Input
             type="text"
             name="title"
             id="title"
+            placeholder="Title"
             value={title}
             onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
-          <Label>Author: </Label>
+          <Label>Author</Label>
           <Input
             type="text"
             name="author"
             id="author"
+            placeholder="author"
             value={author}
             onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
-          <Label>Url: </Label>
+          <Label>Url</Label>
           <Input
             type="text"
             name="url"
             id="url"
+            placeholder="Url"
             value={url}
             onChange={handleChange}
           />

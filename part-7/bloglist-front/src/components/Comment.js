@@ -1,14 +1,18 @@
 import React from 'react'
+import { Form, Input, FormGroup, Button, Row } from 'reactstrap'
 
 const Comment = (props) => {
+  console.log(props.blog)
   return(
-    <div>
+    <Row >
       <div>
         <h3>comments</h3>
-        <form onSubmit={props.submitComment} >
-          <input type='text' name='comment' />
-          <button type='submit' >add comment</button>
-        </form>
+        <Form onSubmit={props.submitComment} >
+          <FormGroup>
+            <Input type='text' name='comment' />
+          </FormGroup>
+          <Button type='submit' >add comment</Button>
+        </Form>
       </div>
       <div>
         {/* <ul>
@@ -17,7 +21,7 @@ const Comment = (props) => {
           )}
         </ul> */}
       </div>
-    </div>
+    </Row>
   )
 }
 export default Comment
