@@ -1,5 +1,6 @@
 const blogsRouter = require('express').Router()
 const Blog = require('../models/blog')
+const Comment = require('../models/Comment')
 const User = require('../models/user')
 const jwt = require('jsonwebtoken')
 
@@ -7,6 +8,7 @@ const jwt = require('jsonwebtoken')
 blogsRouter.get('/', async (req, res) => {
     const blogs = await Blog
         .find({})
+        .populate('comments', {comment: 1 })
         .populate('user', { username: 1, name: 1 })
     res.json(blogs.map(Blog.format))
 })
@@ -14,6 +16,7 @@ blogsRouter.get('/', async (req, res) => {
 blogsRouter.get('/:id', async (req, res) => {
     try {
         const blog = await Blog.findById(req.params.id)
+        .populate('comments', { comments: 1 })
         if(blog) {
             res.json(Blog.format(blog)) 
         }
@@ -87,6 +90,27 @@ blogsRouter.put('/:id', (req, res) => {
             console.log(error)
             res.status(400).send({ error: 'malformatted id' })
         })
+})
+
+blogsRouter.post('/:id/comments', async (req, res) => {
+    const body = req.body
+    console.log(body)
+    try {
+        const blog = await Blog.findById(req.params.id)
+        const comment = new Comment({
+            comment: body.comment,
+            blog: req.params.id
+        })
+        
+        const savedComment = await comment.save()
+        blog.comments = blog.comments.concat(savedComment._id)
+        await blog.save()
+
+    } catch (error) {
+        console.log(error)
+    }
+
+
 })
 
 blogsRouter.delete('/:id', async (req, res) => {
