@@ -60,7 +60,7 @@ const BlogForm = (props) => {
             onChange={handleChange}
           />
         </FormGroup>
-        <Button type='submit' color="primary" >Create</Button>
+        <Button id="create" type='submit' color="primary" >Create</Button>
       </Form>
     </Container>
   )}

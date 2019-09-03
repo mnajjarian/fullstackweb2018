@@ -18,7 +18,7 @@ const mongoose = require('mongoose')
          blog: comment.blog
      }
  }
-
+ mongoose.models = {}
  const Comment = mongoose.model('Comment', commentSchema);
 
  module.exports = Comment

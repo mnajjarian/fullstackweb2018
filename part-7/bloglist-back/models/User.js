@@ -15,7 +15,9 @@ userSchema.statics.format = (user) => {
         blogs: user.blogs
     }
 }
-
+mongoose.models = {}
 const User = mongoose.model('User', userSchema)
+
+
 
 module.exports = User

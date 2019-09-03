@@ -20,6 +20,7 @@ blogSchema.statics.format = (blog) => {
         user: blog.user
     }
 }
+mongoose.models = {}
 
 const Blog = mongoose.model('Blog', blogSchema)
 

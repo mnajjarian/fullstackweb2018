@@ -21,12 +21,12 @@ export const createBlog = (newBlog) => async (dispatch) => {
   try {
     const response = await blogService.create(newBlog, config)
     const blogs = await blogService.getAll()
+    const message = `a new blog ${response.title} by ${localStorage.getItem('name')} added`
+    dispatch(notification({ error: null, message }))
     dispatch({
       type: ActionTypes.NEW_BLOG,
       data: blogs
     })
-    const message = `a new blog ${response.title} by ${localStorage.getItem('name')} added`
-    dispatch(notification({ error: null, message }))
     setTimeout(() => {
       dispatch({ type: ActionTypes.MESSAGE_NULL })
     }, 5000)
