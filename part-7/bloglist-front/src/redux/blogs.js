@@ -4,6 +4,7 @@ export const Blogs = (state = {
   blogs: [],
   notify: { error: null, message: null }
 }, action) => {
+  console.log(action)
   switch (action.type) {
   case ActionTypes.ADD_BLOGS:
     return { ...state, blogs: action.data }

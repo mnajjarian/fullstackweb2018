@@ -9,11 +9,12 @@ const Header = (props) => {
   }
 
   const handleSubmit = (user) => {
-    if(!user.name) {
+    if(user.name.length < 1) {
       props.loginUser(user)
+      props.resetLoginForm()
+    } else {
+      props.signupUser(user)
     }
-    props.signupUser(user)
-    props.resetLoginForm()
   }
 
   return(

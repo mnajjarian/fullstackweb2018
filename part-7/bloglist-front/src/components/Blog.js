@@ -7,15 +7,8 @@ import BlogForm from './BlogForm'
 const Blog = (props) => {
 
   const handleCreate = (values) => {
-    const blog = {
-      title: values.title,
-      author: values.author,
-      url: values.url,
-      likes: 0,
-      comments: []
-    }
-    props.createBlog(blog)
-    props.resetBlogForm()
+    console.log(values)
+    props.createBlog(values)
   }
 
   if(props.auth.isAuthenticated) {

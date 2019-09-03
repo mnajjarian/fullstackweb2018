@@ -19,7 +19,11 @@ const UsersList = ({ users, handleUser }) => {
           </tr>
           {users.map(user =>
             <tr key={user.id} >
-              <td onClick={handleUser(user.id)} ><a href={`/${user.id}`} >{user.username}</a></td>
+              <td onClick={handleUser(user.id)} >
+                <a href={`/${user.id}`} >
+                  {user.name}
+                </a>
+              </td>
               <td>{user.blogs.length}</td>
             </tr>
           )}

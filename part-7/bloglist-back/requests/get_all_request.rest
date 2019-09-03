@@ -1,6 +1,6 @@
-POST http://localhost:3003/api/blogs
+POST http://localhost:3001/api/blogs
 content-type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjViMWUyNmQyNWY1NWQ3MGExNmQzZjk2NSIsImlhdCI6MTUyODcwMjY3OH0.u-eTWTC2bOEXEJb3mR8JtjRtYWty2e7vPjvLlPIGqXA
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1uYWphcmlhbiIsImlkIjoiNWQ2ZDUyNjFhMzMxYjcwMWQzNWY5YjQ3IiwiaWF0IjoxNTY3NDQ1NjM5fQ.s7zxlOKpNyIaZ_3FDf8vP3VzHbs7mQZkRW6kK34y5jk
 
 {
     "title": "Type wars(test)",
@@ -32,7 +32,7 @@ GET http://localhost:3003/api/users
 
 
 ###
-POST http://localhost:3003/api/users
+POST http://localhost:3001/api/users
 content-type: application/json
 
 {

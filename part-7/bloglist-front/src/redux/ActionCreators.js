@@ -45,7 +45,8 @@ export const addComment = (blogId, comment) => async (dispatch) => {
     })
     const blog = blogs.find(blog => blog.id === blogId)
     const message = `comment '${comment.comment}' added to blog ${blog.title} `
-    dispatch(notification({ error: null, message }))
+    console.log(blog)
+    dispatch(notification({ error: null, message: message }))
     setTimeout(() => {
       dispatch({ type: ActionTypes.MESSAGE_NULL })
     }, 5000)
@@ -86,10 +87,10 @@ export const addLikes = (blogId) => async (dispatch) => {
 
 }
 
-const notification = (message) => {
+const notification = (data) => {
   return {
     type: ActionTypes.MESSAGE_BLOG,
-    data: message
+    data
   }
 }
 

@@ -17,6 +17,7 @@ const App = (props) => {
   }, [])
 
   const handleDelete = (title, author, blogId) => () => {
+    console.log('delet')
     if(window.confirm(`delete '${title}' by ${author}?`)) {
       props.removeBlog(blogId)
     }

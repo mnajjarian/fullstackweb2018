@@ -12,7 +12,8 @@ const BlogForm = (props) => {
     [e.target.name]: e.target.value
   })
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     props.handleCreate(state)
     setState({
       title: '',

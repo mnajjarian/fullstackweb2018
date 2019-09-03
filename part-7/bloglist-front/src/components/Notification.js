@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Notification =  (props) => {
+  console.log(props.notify)
   if(props.notify.error !== null) {
     return(
       <div className='error' >
